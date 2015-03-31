@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Treemap budgetaire</title>
+  
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+  <style type='text/css'>
+    #container {
+	min-width: 300px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+  </style>
+  
+
+
+<script type='text/javascript'>//<![CDATA[ 
+
+$(function () {
+	$('#container').highcharts({
+		series: [{
+			type: "treemap",
+            layoutAlgorithm: 'stripes',
+            alternateStartingDirection: true,
+            levels: [{
+                level: 1,
+                layoutAlgorithm: 'sliceAndDice',
+                dataLabels: {
+                    enabled: true,
+                    align: 'left',
+                    verticalAlign: 'top',
+                    style: {
+                        fontSize: '15px',
+                        fontWeight: 'bold'
+                    }
+                }
+            }],
+			data: [{
+				id: 'A',
+                name: 'Somme prévue au COM 2010-14, non versée',
+				color: "#EC2500"
+			}, {
+				id: 'B',
+                name: 'Surcoût du chantier',
+				color: "#FF6600"
+			}, {
+				id: 'O',
+                name: 'Economies attendues d\'un plan social',
+				color: '#EC9800'
+			}, {
+                name: '(total sur 3 ans : 87,5 millions)',
+				parent: 'A',
+				value: 29166
+			}, {
+				name: '(environ 200 millions sur 7 ans)',
+				parent: 'B',
+				value: 38571
+			}, {
+				name: 'dont bureau du PDG',
+				parent: 'B',
+				value: 100,
+                color: '#000000'
+			}, {
+				name: '(entre 17 et 24 millions / an en salaires)',
+				parent: 'O',
+				value: 20500,
+				color: '#545C5C'
+			}]
+		}],
+		title: {
+			text: 'Radio France et l\'argent, ordres de grandeur<br>(en milliers d\'euros et sur un an)'
+		}
+	});
+});
+//]]>  
+
+</script>
+
+
+</head>
+<body>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/treemap.js"></script>
+<div id="container"></div>
+  
+</body>
+
+
+</html>
+
